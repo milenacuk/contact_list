@@ -1,5 +1,19 @@
 <template>
 <div>
+    <h3>Add contact</h3>
+    <form @submit.prevent="addContact">
+        <label>First Name</label>
+        <input v-model="newContact.firstName" placeholder="First Name"/><br>
+
+        <label>Last Name</label>
+        <input v-model="newContact.lastName" placeholder="Last Name"/><br>
+
+        <label>Email</label>
+        <input v-model="newContact.email" placeholder="Email"/><br>
+
+        <button type='submit' >ADD CONTACT</button>
+    </form>
+    <!-- {{newContact}} -->
     <h3>Contact List</h3>
     <table border=1>
         <thead>
@@ -22,9 +36,14 @@
 </template>
 
 <script>
-export default {
+export default {    
     data(){
         return {
+            newContact: {
+                firstName: '',
+                lastName: '',
+                email: ''
+            },
             contacts: [
                 { firstName: 'John', lastName: 'Doe', email: 'exemple@exemple.com'},
                 { firstName: 'Jane', lastName: 'Doe', email: 'exemple@exemple.com'},
@@ -34,6 +53,12 @@ export default {
                 
             ]
         };
+    },
+    methods: {
+        addContact(){
+            this.contacts.push(this.newContact);
+            this.newContact = {};
+        }
     }
 }
 </script>
