@@ -2,18 +2,24 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <ContactList/>
+    <ContactList/>
+    
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+import ContactList from './components/ContactList.vue'  //inportujemo komponentu
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    HelloWorld,
+    ContactList       
+    // i ovde treba navesti da smo inportovali
   }
-}
+};
 </script>
 
 <style>
