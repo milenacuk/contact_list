@@ -28,6 +28,9 @@
                 <td>{{ contact.firstName }}</td>
                 <td>{{ contact.lastName }}</td>
                 <td>{{ contact.email }}</td>
+                <td>
+                    <button @click="removeContact(contact)">Remove</button>
+                </td>
             </tr>
                 
         </tbody>
@@ -48,7 +51,7 @@ export default {
                 { firstName: 'John', lastName: 'Doe', email: 'exemple@exemple.com'},
                 { firstName: 'Jane', lastName: 'Doe', email: 'exemple@exemple.com'},
                 { firstName: 'Jack', lastName: 'Doe', email: 'exemple@exemple.com'},
-                { firstName: 'Susann', lastName: 'Doe', email: 'exemple@exemple.com'},
+                { firstName: 'Susan', lastName: 'Doe', email: 'exemple@exemple.com'},
                 { firstName: 'Jasmin', lastName: 'Doe', email: 'exemple@exemple.com'}
                 
             ]
@@ -58,6 +61,11 @@ export default {
         addContact(){
             this.contacts.push(this.newContact);
             this.newContact = {};
+        },
+        removeContact(contact){
+            let index = this.contacts.indexOf(contact);
+            //console.log(index);
+            this.contacts.splice(index,1);
         }
     }
 }
