@@ -1,12 +1,13 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-    <ContactList/>
+    <!-- <img alt="Vue logo" src="./assets/logo.png">
+    <HelloWorld msg="Welcome to Your Vue.js App"/> -->
+    <!-- <ContactList/> -->
     <!-- <BlogPost v-bind:title="parentTitle"
     @callParentFuction="parentFunction"  
     />   -->
-   
+    <NavBar/>
+   <router-view></router-view>
    
     
   </div>
@@ -16,6 +17,7 @@
 import HelloWorld from './components/HelloWorld.vue'
 import ContactList from './components/ContactList.vue'  //inportujemo komponentu
 import BlogPost from './components/BlogPost.vue'
+import NavBar from './components/NavBar.vue'
 
 export default {
   name: 'app',
@@ -33,7 +35,8 @@ export default {
   components: {
     HelloWorld,
     ContactList  ,
-    BlogPost     
+    BlogPost ,
+    NavBar   
     // i ovde treba navesti da smo inportovali
   }
 };
