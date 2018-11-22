@@ -15,6 +15,7 @@
     </form>
     <!-- {{newContact}} -->
     <h3>Contact List</h3>
+     <center>
     <table border=1>
         <thead>
             <th>KEY</th>
@@ -24,17 +25,18 @@
         </thead>
         <tbody>
             <tr v-for="(contact, index) in contacts" :key="index">
-                <td>{{ index + 1 }}</td>                
+                <td>{{ index + 1 }}</td>              
                 <td>{{ contact.firstName }}</td>
                 <td>{{ contact.lastName }}</td>
                 <td>{{ contact.email }}</td>
                 <td>
-                    <button @click="removeContact(contact)">Remove</button>
+                    <button class='btn btn-danger' @click="removeContact(contact)">Remove</button>
                 </td>
             </tr>
                 
         </tbody>
     </table>
+    </center>
 </div>
 </template>
 

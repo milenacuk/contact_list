@@ -3,6 +3,10 @@
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
     <ContactList/>
+    <!-- <BlogPost v-bind:title="parentTitle"
+    @callParentFuction="parentFunction"  
+    />   -->
+   
    
     
   </div>
@@ -11,12 +15,25 @@
 <script>
 import HelloWorld from './components/HelloWorld.vue'
 import ContactList from './components/ContactList.vue'  //inportujemo komponentu
+import BlogPost from './components/BlogPost.vue'
 
 export default {
   name: 'app',
+  data(){
+    return{
+      parentTitle: 'Blog title'
+                                          // ovde pravimo props za perent
+    };
+  },
+  methods: {
+    parentFunction(name){
+      console.log('Hi from parent, ' + name);
+    }
+  },
   components: {
     HelloWorld,
-    ContactList       
+    ContactList  ,
+    BlogPost     
     // i ovde treba navesti da smo inportovali
   }
 };
