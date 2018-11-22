@@ -1,5 +1,7 @@
 <template>
 <div>
+    <ContactTable :contactList='contacts'/>
+    
     <h3>Add contact</h3>
     <form @submit.prevent="addContact">
         <label>First Name</label>
@@ -14,35 +16,17 @@
         <button type='submit' >ADD CONTACT</button>
     </form>
     <!-- {{newContact}} -->
-    <h3>Contact List</h3>
-     <center>
-    <table border=1>
-        <thead>
-            <th>KEY</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Email</th>
-        </thead>
-        <tbody>
-            <tr v-for="(contact, index) in contacts" :key="index">
-                <td>{{ index + 1 }}</td>              
-                <td>{{ contact.firstName }}</td>
-                <td>{{ contact.lastName }}</td>
-                <td>{{ contact.email }}</td>
-                <td>
-                    <button class='btn btn-danger' @click="removeContact(contact)">Remove</button>
-                </td>
-            </tr>
-                
-        </tbody>
-    </table>
-    </center>
+   
 </div>
 </template>
 
 <script>
-export default {    
-    data(){
+import ContactTable from './ContactTable'
+export default {   
+     components: {
+            ContactTable
+        },
+    data(){        
         return {
             newContact: {
                 firstName: '',

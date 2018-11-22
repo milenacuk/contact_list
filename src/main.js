@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 import ContactList from './components/ContactList.vue';  //importujemo ContactList komponentu
 import AddContact from './components/AddContact.vue'
 
+
 Vue.config.productionTip = false
 
 Vue.use(VueRouter);
