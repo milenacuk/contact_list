@@ -1,7 +1,8 @@
 <template>
 <div>
+    <ContactDetails :contact="routeContact"/>
     <ContactTable :contactList='contacts'/>
-    
+
     <h3>Add contact</h3>
     <form @submit.prevent="addContact">
         <label>First Name</label>
@@ -15,6 +16,7 @@
 
         <button type='submit' >ADD CONTACT</button>
     </form>
+    
     <!-- {{newContact}} -->
    
 </div>
@@ -22,9 +24,12 @@
 
 <script>
 import ContactTable from './ContactTable'
+import ContactDetails from './ContactDetails'
+
 export default {   
      components: {
-            ContactTable
+            ContactTable,
+            ContactDetails
         },
     data(){        
         return {
@@ -34,11 +39,11 @@ export default {
                 email: ''
             },
             contacts: [
-                { firstName: 'John', lastName: 'Doe', email: 'exemple@exemple.com'},
-                { firstName: 'Jane', lastName: 'Doe', email: 'exemple@exemple.com'},
-                { firstName: 'Jack', lastName: 'Doe', email: 'exemple@exemple.com'},
-                { firstName: 'Susan', lastName: 'Doe', email: 'exemple@exemple.com'},
-                { firstName: 'Jasmin', lastName: 'Doe', email: 'exemple@exemple.com'}
+                { id: 1, firstName: 'John', lastName: 'Doe', email: 'exemple@exemple.com'},
+                { id: 2,firstName: 'Jane', lastName: 'Doe', email: 'exemple@exemple.com'},
+                { id: 3,firstName: 'Jack', lastName: 'Doe', email: 'exemple@exemple.com'},
+                { id: 4,firstName: 'Susan', lastName: 'Doe', email: 'exemple@exemple.com'},
+                { id: 5,firstName: 'Jasmin', lastName: 'Doe', email: 'exemple@exemple.com'}
                 
             ]
         };
@@ -53,6 +58,16 @@ export default {
             //console.log(index);
             this.contacts.splice(index,1);
         }
+        
+    },
+    computed: {
+        routeContact(){
+            let findedContact =  this.contacts.find(contact => contact.id == this.$route.params.id); //na ovaj nacin uvek izvacimo parametre iz rute
+            console.log(findedContact);
+            return findedContact;
+        }
+        
+       
     }
 }
 </script>
